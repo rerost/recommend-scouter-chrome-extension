@@ -16,4 +16,5 @@ PROTO_BUNDLE_OUT_DIR := ./app/bundlepb.json
 
 .PHONY: bundlepb
 bundlepb:
-	./node_modules/protobufjs/bin/pbjs -t json ${PROTO_DIR}/${PROTO_FILES} > ${PROTO_BUNDLE_OUT_DIR}
+	./node_modules/protobufjs/bin/pbjs -t static-module -w commonjs -o ${PROTO_OUT_DIR}/bundle.js ${PROTO_DIR}/${PROTO_FILES}
+	./node_modules/protobufjs/bin/pbts -o ${PROTO_OUT_DIR}/bundle.d.ts ${PROTO_OUT_DIR}/bundle.js

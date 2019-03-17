@@ -1,5 +1,10 @@
 import * as bundle from "../../api/bundle"
 import pb = bundle.com.github.rerost.recommend_scouter.api
+let ReactDOM = require("react-dom");
+import * as React from 'react'
+import Scouter, {event} from '../component/scouter'
+
+showScouter()
 
 window.document.addEventListener("click", (ev: MouseEvent) => {
   let elem = ev.toElement
@@ -10,11 +15,15 @@ window.document.addEventListener("click", (ev: MouseEvent) => {
   if (dataScoreDescription == null) {
     return
   }
-  showScouter(dataScoreDescription)
+
+  window.console.log(dataScoreDescription)
+  event.emit("set", dataScoreDescription)
 })
 
-function showScouter(scoreDescription: pb.ScoreDescription) {
-  window.console.log(scoreDescription)
+function showScouter() {
+  let e = window.document.createElement("div")
+  ReactDOM.render(<Scouter></Scouter>, e)
+  window.document.body.appendChild(e)
 }
 
 function getScoreDescription(elem: Element): pb.ScoreDescription | null {

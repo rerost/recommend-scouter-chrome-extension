@@ -23,8 +23,8 @@ export namespace com {
                         /** Score score */
                         score?: (number|null);
 
-                        /** Score scoreFunc */
-                        scoreFunc?: (string|null);
+                        /** Score score_func */
+                        score_func?: (string|null);
                     }
 
                     /** Represents a Score. */
@@ -42,8 +42,8 @@ export namespace com {
                         /** Score score. */
                         public score: number;
 
-                        /** Score scoreFunc. */
-                        public scoreFunc: string;
+                        /** Score score_func. */
+                        public score_func: string;
 
                         /**
                          * Creates a new Score instance using the specified properties.
@@ -122,8 +122,8 @@ export namespace com {
                         /** ScoreDescription scores */
                         scores?: (com.github.rerost.recommend_scouter.api.IScore[]|null);
 
-                        /** ScoreDescription scoreFunc */
-                        scoreFunc?: (string|null);
+                        /** ScoreDescription score_func */
+                        score_func?: (string|null);
                     }
 
                     /** Represents a ScoreDescription. */
@@ -138,8 +138,8 @@ export namespace com {
                         /** ScoreDescription scores. */
                         public scores: com.github.rerost.recommend_scouter.api.IScore[];
 
-                        /** ScoreDescription scoreFunc. */
-                        public scoreFunc: string;
+                        /** ScoreDescription score_func. */
+                        public score_func: string;
 
                         /**
                          * Creates a new ScoreDescription instance using the specified properties.

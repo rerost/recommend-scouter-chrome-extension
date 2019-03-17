@@ -62,7 +62,7 @@ $root.com = (function() {
                          * @interface IScore
                          * @property {string|null} [name] Score name
                          * @property {number|null} [score] Score score
-                         * @property {string|null} [scoreFunc] Score scoreFunc
+                         * @property {string|null} [score_func] Score score_func
                          */
 
                         /**
@@ -97,12 +97,12 @@ $root.com = (function() {
                         Score.prototype.score = 0;
 
                         /**
-                         * Score scoreFunc.
-                         * @member {string} scoreFunc
+                         * Score score_func.
+                         * @member {string} score_func
                          * @memberof com.github.rerost.recommend_scouter.api.Score
                          * @instance
                          */
-                        Score.prototype.scoreFunc = "";
+                        Score.prototype.score_func = "";
 
                         /**
                          * Creates a new Score instance using the specified properties.
@@ -132,8 +132,8 @@ $root.com = (function() {
                                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
                             if (message.score != null && message.hasOwnProperty("score"))
                                 writer.uint32(/* id 2, wireType 1 =*/17).double(message.score);
-                            if (message.scoreFunc != null && message.hasOwnProperty("scoreFunc"))
-                                writer.uint32(/* id 3, wireType 2 =*/26).string(message.scoreFunc);
+                            if (message.score_func != null && message.hasOwnProperty("score_func"))
+                                writer.uint32(/* id 3, wireType 2 =*/26).string(message.score_func);
                             return writer;
                         };
 
@@ -175,7 +175,7 @@ $root.com = (function() {
                                     message.score = reader.double();
                                     break;
                                 case 3:
-                                    message.scoreFunc = reader.string();
+                                    message.score_func = reader.string();
                                     break;
                                 default:
                                     reader.skipType(tag & 7);
@@ -218,9 +218,9 @@ $root.com = (function() {
                             if (message.score != null && message.hasOwnProperty("score"))
                                 if (typeof message.score !== "number")
                                     return "score: number expected";
-                            if (message.scoreFunc != null && message.hasOwnProperty("scoreFunc"))
-                                if (!$util.isString(message.scoreFunc))
-                                    return "scoreFunc: string expected";
+                            if (message.score_func != null && message.hasOwnProperty("score_func"))
+                                if (!$util.isString(message.score_func))
+                                    return "score_func: string expected";
                             return null;
                         };
 
@@ -240,8 +240,8 @@ $root.com = (function() {
                                 message.name = String(object.name);
                             if (object.score != null)
                                 message.score = Number(object.score);
-                            if (object.scoreFunc != null)
-                                message.scoreFunc = String(object.scoreFunc);
+                            if (object.score_func != null)
+                                message.score_func = String(object.score_func);
                             return message;
                         };
 
@@ -261,14 +261,14 @@ $root.com = (function() {
                             if (options.defaults) {
                                 object.name = "";
                                 object.score = 0;
-                                object.scoreFunc = "";
+                                object.score_func = "";
                             }
                             if (message.name != null && message.hasOwnProperty("name"))
                                 object.name = message.name;
                             if (message.score != null && message.hasOwnProperty("score"))
                                 object.score = options.json && !isFinite(message.score) ? String(message.score) : message.score;
-                            if (message.scoreFunc != null && message.hasOwnProperty("scoreFunc"))
-                                object.scoreFunc = message.scoreFunc;
+                            if (message.score_func != null && message.hasOwnProperty("score_func"))
+                                object.score_func = message.score_func;
                             return object;
                         };
 
@@ -293,7 +293,7 @@ $root.com = (function() {
                          * @memberof com.github.rerost.recommend_scouter.api
                          * @interface IScoreDescription
                          * @property {Array.<com.github.rerost.recommend_scouter.api.IScore>|null} [scores] ScoreDescription scores
-                         * @property {string|null} [scoreFunc] ScoreDescription scoreFunc
+                         * @property {string|null} [score_func] ScoreDescription score_func
                          */
 
                         /**
@@ -321,12 +321,12 @@ $root.com = (function() {
                         ScoreDescription.prototype.scores = $util.emptyArray;
 
                         /**
-                         * ScoreDescription scoreFunc.
-                         * @member {string} scoreFunc
+                         * ScoreDescription score_func.
+                         * @member {string} score_func
                          * @memberof com.github.rerost.recommend_scouter.api.ScoreDescription
                          * @instance
                          */
-                        ScoreDescription.prototype.scoreFunc = "";
+                        ScoreDescription.prototype.score_func = "";
 
                         /**
                          * Creates a new ScoreDescription instance using the specified properties.
@@ -355,8 +355,8 @@ $root.com = (function() {
                             if (message.scores != null && message.scores.length)
                                 for (var i = 0; i < message.scores.length; ++i)
                                     $root.com.github.rerost.recommend_scouter.api.Score.encode(message.scores[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                            if (message.scoreFunc != null && message.hasOwnProperty("scoreFunc"))
-                                writer.uint32(/* id 2, wireType 2 =*/18).string(message.scoreFunc);
+                            if (message.score_func != null && message.hasOwnProperty("score_func"))
+                                writer.uint32(/* id 2, wireType 2 =*/18).string(message.score_func);
                             return writer;
                         };
 
@@ -397,7 +397,7 @@ $root.com = (function() {
                                     message.scores.push($root.com.github.rerost.recommend_scouter.api.Score.decode(reader, reader.uint32()));
                                     break;
                                 case 2:
-                                    message.scoreFunc = reader.string();
+                                    message.score_func = reader.string();
                                     break;
                                 default:
                                     reader.skipType(tag & 7);
@@ -443,9 +443,9 @@ $root.com = (function() {
                                         return "scores." + error;
                                 }
                             }
-                            if (message.scoreFunc != null && message.hasOwnProperty("scoreFunc"))
-                                if (!$util.isString(message.scoreFunc))
-                                    return "scoreFunc: string expected";
+                            if (message.score_func != null && message.hasOwnProperty("score_func"))
+                                if (!$util.isString(message.score_func))
+                                    return "score_func: string expected";
                             return null;
                         };
 
@@ -471,8 +471,8 @@ $root.com = (function() {
                                     message.scores[i] = $root.com.github.rerost.recommend_scouter.api.Score.fromObject(object.scores[i]);
                                 }
                             }
-                            if (object.scoreFunc != null)
-                                message.scoreFunc = String(object.scoreFunc);
+                            if (object.score_func != null)
+                                message.score_func = String(object.score_func);
                             return message;
                         };
 
@@ -492,14 +492,14 @@ $root.com = (function() {
                             if (options.arrays || options.defaults)
                                 object.scores = [];
                             if (options.defaults)
-                                object.scoreFunc = "";
+                                object.score_func = "";
                             if (message.scores && message.scores.length) {
                                 object.scores = [];
                                 for (var j = 0; j < message.scores.length; ++j)
                                     object.scores[j] = $root.com.github.rerost.recommend_scouter.api.Score.toObject(message.scores[j], options);
                             }
-                            if (message.scoreFunc != null && message.hasOwnProperty("scoreFunc"))
-                                object.scoreFunc = message.scoreFunc;
+                            if (message.score_func != null && message.hasOwnProperty("score_func"))
+                                object.score_func = message.score_func;
                             return object;
                         };
 

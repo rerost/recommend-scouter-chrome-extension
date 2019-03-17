@@ -1,0 +1,13 @@
+syntax = "proto3";
+package com.github.rerost.recommend_scouter.api;
+
+message Score {
+  string name = 1;
+  double score = 2;
+  string score_func = 3;
+}
+
+message ScoreDescription {
+  repeated Score scores = 1;
+  string score_func = 2;
+}

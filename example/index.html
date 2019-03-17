@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<body>
+  List
+  <div id=list>
+  </div>
+</body>
+
+<script>
+  fetch("http://localhost:3000/users").then((resp) => { return resp.json() }).then((json) => {
+    json.users.forEach(user => {
+      let node = window.document.createElement("div")
+      node.setAttribute("class", "recommend-scouter-item")
+      node.setAttribute("data-score-description", JSON.stringify(user.score_description))
+      node.appendChild(document.createTextNode(`user-${user.id}`))
+      window.document.getElementById("list").appendChild(node)
+    });
+  })
+</script>

@@ -44,14 +44,16 @@ export default class Scouter extends React.Component<any, State> {
 
     window.console.log(this.state.scoreDescription)
 
+    const scoreDescription = this.state.scoreDescription
     return (
       <div style={style}>
-        <div style={{fontStyle: "italic"}}>{this.state.scoreDescription.score_func}</div>
+        <div style={{fontStyle: "italic"}}>{scoreDescription.score_func}</div>
         {
-          this.state.scoreDescription.scores.map((score: pb.Score, i: number) => {
+          scoreDescription.scores.map((score: pb.Score, i: number) => {
+            let scoreName = calcScoreName(score)
             return (
               <div key={i} style={{display: "flex"}}>
-                <div style={{marginRight: "auto"}}>{score.name}:</div>
+                <div style={{marginRight: "auto"}}>{scoreName}:</div>
                 <div style={{marginLeft: "auto"}}>{score.score}</div>
               </div>
             )
@@ -60,4 +62,13 @@ export default class Scouter extends React.Component<any, State> {
       </div>
     )
   }
+}
+
+
+function calcScoreName(score: pb.Score) {
+  if (score.score_func == "") {
+    return score.name
+  }
+
+  return score.name + `(= ${score.score_func})`
 }

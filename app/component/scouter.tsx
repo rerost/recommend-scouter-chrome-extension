@@ -39,7 +39,7 @@ export default class Scouter extends React.Component<any, State> {
     } as React.CSSProperties
 
     if (this.state.scoreDescription == null) {
-      return <div style={style}>Test</div>
+      return <div></div>
     }
 
     const scoreDescription = this.state.scoreDescription

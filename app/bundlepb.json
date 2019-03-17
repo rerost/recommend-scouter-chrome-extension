@@ -1,0 +1,53 @@
+{
+  "nested": {
+    "com": {
+      "nested": {
+        "github": {
+          "nested": {
+            "rerost": {
+              "nested": {
+                "recommend_scouter": {
+                  "nested": {
+                    "api": {
+                      "nested": {
+                        "Score": {
+                          "fields": {
+                            "name": {
+                              "type": "string",
+                              "id": 1
+                            },
+                            "score": {
+                              "type": "double",
+                              "id": 2
+                            },
+                            "scoreFunc": {
+                              "type": "string",
+                              "id": 3
+                            }
+                          }
+                        },
+                        "ScoreDescription": {
+                          "fields": {
+                            "scores": {
+                              "rule": "repeated",
+                              "type": "Score",
+                              "id": 1
+                            },
+                            "scoreFunc": {
+                              "type": "string",
+                              "id": 2
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -46,7 +46,7 @@ export default class Scouter extends React.Component<any, State> {
 
     return (
       <div style={style}>
-        <div>{this.state.scoreDescription.score_func}</div>
+        <div style={{fontStyle: "italic"}}>{this.state.scoreDescription.score_func}</div>
         {
           this.state.scoreDescription.scores.map((score: pb.Score, i: number) => {
             return (

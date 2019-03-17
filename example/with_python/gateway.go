@@ -6,6 +6,7 @@ import (
 	"net/http"
 
 	"github.com/golang/glog"
+	"github.com/gorilla/handlers"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	gw "github.com/rerost/recommend-scouter-chrome-extension/example/with_python/api"
 	"google.golang.org/grpc"
@@ -22,12 +23,18 @@ func run() error {
 
 	mux := runtime.NewServeMux()
 	opts := []grpc.DialOption{grpc.WithInsecure()}
+	newMux := handlers.CORS(
+		handlers.AllowedMethods([]string{"GET", "POST", "OPTIONS"}),
+		handlers.AllowedOrigins([]string{"*"}),
+		handlers.AllowedHeaders([]string{"content-type", "x-foobar-key"}),
+	)(mux)
+
 	err := gw.RegisterRecommendServiceHandlerFromEndpoint(ctx, mux, *echoEndpoint, opts)
 	if err != nil {
 		return err
 	}
 
-	return http.ListenAndServe(":3000", mux)
+	return http.ListenAndServe(":3000", newMux)
 }
 
 func main() {

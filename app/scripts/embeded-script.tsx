@@ -16,7 +16,6 @@ window.document.addEventListener("click", (ev: MouseEvent) => {
     return
   }
 
-  window.console.log(dataScoreDescription)
   event.emit("set", dataScoreDescription)
 })
 

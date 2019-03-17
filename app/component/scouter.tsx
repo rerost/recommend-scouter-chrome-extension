@@ -42,8 +42,6 @@ export default class Scouter extends React.Component<any, State> {
       return <div style={style}>Test</div>
     }
 
-    window.console.log(this.state.scoreDescription)
-
     const scoreDescription = this.state.scoreDescription
     return (
       <div style={style}>
